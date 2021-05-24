@@ -16,7 +16,7 @@ explore: distribution_centers {
 }
 
 explore: etl_jobs {
-  label: " ETL jobs"
+  label: "ETL jobs"
   hidden: yes
 }
 
@@ -45,7 +45,7 @@ explore: inventory_items {
 }
 
 explore: order_items {
-  label: "Order Items"
+  label: "Sales summary"
   join: inventory_items {
     type: left_outer
     sql_on: ${order_items.inventory_item_id} = ${inventory_items.id} ;;
