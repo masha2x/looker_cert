@@ -209,7 +209,7 @@ view: order_items {
     description: "Total Sale Price / total number of customers"
     type:  number
     drill_fields: [detail*]
-    sql: ${total_sale_price} / nulif(${users.count},1) ;;
+    sql: ${total_sale_price} / nullif(${users.count},1) ;;
   }
 
 
