@@ -10,11 +10,18 @@ datagroup: mk_cert_training_default_datagroup {
 
 persist_with: mk_cert_training_default_datagroup
 
-explore: distribution_centers {}
+explore: distribution_centers {
+  label: "Distribution centers"
+  hidden: yes
+}
 
-explore: etl_jobs {}
+explore: etl_jobs {
+  label: " ETL jobs"
+  hidden: yes
+}
 
 explore: events {
+  label: "Events"
   join: users {
     type: left_outer
     sql_on: ${events.user_id} = ${users.id} ;;
@@ -23,6 +30,7 @@ explore: events {
 }
 
 explore: inventory_items {
+  label: "Inventory items"
   join: products {
     type: left_outer
     sql_on: ${inventory_items.product_id} = ${products.id} ;;
@@ -64,6 +72,7 @@ explore: order_items {
 }
 
 explore: products {
+  label: "Products"
   join: distribution_centers {
     type: left_outer
     sql_on: ${products.distribution_center_id} = ${distribution_centers.id} ;;
