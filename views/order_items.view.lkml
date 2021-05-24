@@ -101,6 +101,7 @@ view: order_items {
     type: sum
     sql: ${sale_price} ;;
     value_format_name: usd
+    drill_fields: [detail*]
   }
 
   # ----- Sets of fields for drilling ------
