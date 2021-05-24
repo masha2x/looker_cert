@@ -165,7 +165,7 @@ view: order_items {
     type: number
     label: "Gross Margin %"
     description: "Total Gross Margin Amount / Total Gross Revenue"
-    sql:  (${total_diff}/nullif(${total_gross_revenue},1))*100;;
+    sql:  ${total_diff}/nullif(${total_gross_revenue},1);;
     drill_fields: [detail*]
     value_format_name: percent_2
   }
@@ -199,7 +199,7 @@ view: order_items {
     label: "% of Users with Returns"
     description: "Number of Customer Returning Items / total number of customers"
     drill_fields: [detail*]
-    sql: 100*(${cust_num_ret} / nullif(${users.count},1)) ;;
+    sql: ${cust_num_ret} / nullif(${users.count},1) ;;
     type: number
     value_format_name: percent_2
   }
