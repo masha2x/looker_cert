@@ -4,7 +4,8 @@ connection: "snowlooker"
 include: "/views/**/*.view"
 
 datagroup: mk_cert_training_default_datagroup {
-   sql_trigger: SELECT MAX(id) FROM etl_log;;
+  sql_trigger: select current_date() ;;
+#  sql_trigger: SELECT MAX(id) FROM etl_log;;
   max_cache_age: "1 hour"
 }
 
