@@ -210,6 +210,7 @@ view: order_items {
     type:  number
     drill_fields: [detail*]
     sql: ${total_sale_price} / nullif(${users.count},1) ;;
+    value_format_name: usd
   }
 
 
