@@ -106,7 +106,7 @@ view: users {
   dimension: new_user_90days {
     label: "New users 90 days"
     sql: CASE
-        WHEN diff_months(now(),${created_date}) <= 3 THEN 'New users last 90 days'
+        WHEN datediff(month,CURRENT_DATE(),${created_date}) <= 3 THEN 'New users last 90 days'
         ELSE 'Longer-term customers'
         END ;;
   }
@@ -114,8 +114,8 @@ view: users {
   dimension: new_user_30days {
     label: "New users 30 days"
     sql: CASE
-        WHEN diff_months(now(),${created_date}) <= 1 THEN 'New users last 30 days'
-        WHEN diff_months(now(),${created_date}) <= 2 and diff_months(now(),${created_date}) > 1 THEN 'New users last 30 days'
+        WHEN datediff(month,CURRENT_DATE(),${created_date}) <= 1 THEN 'New users last 30 days'
+        WHEN datediff(month,CURRENT_DATE(),${created_date}) <= 2 and datediff(month,CURRENT_DATE(),${created_date}) > 1 THEN 'New users last 30 days'
         ELSE 'Filter out'
         END ;;
   }
