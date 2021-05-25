@@ -101,4 +101,19 @@ view: users {
         ELSE '66+'
         END ;;
   }
+
+  dimension: new_user_90days {
+    sql: CASE
+        WHEN diff_months(now(),${created_date}) <= 3 THEN 'New users last 90 days'
+        ELSE 'Longer-term customers'
+        END ;;
+  }
+
+  dimension: new_user_30days {
+    sql: CASE
+        WHEN diff_months(now(),${created_date}) <= 1 THEN 'New users last 30 days'
+        WHEN diff_months(now(),${created_date}) <= 2 and diff_months(now(),${created_date}) > 1 THEN 'New users last 30 days'
+        ELSE 'Filter out'
+        END ;;
+  }
 }
