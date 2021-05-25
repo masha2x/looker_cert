@@ -91,4 +91,14 @@ view: users {
     type: count
     drill_fields: [id, last_name, first_name, events.count, order_items.count]
   }
+
+  dimension: age_group {
+    sql: CASE
+        WHEN ${age} >= 15 and ${age} < 26 THEN '15 - 25'
+        WHEN ${age} >= 26 and ${age} < 36 THEN '26 - 35'
+        WHEN ${age} >= 36 and ${age} < 50 THEN '36-50'
+        WHEN ${age} >= 50 and ${age} < 66 THEN '51-65'
+        ELSE '66+'
+        END ;;
+  }
 }
