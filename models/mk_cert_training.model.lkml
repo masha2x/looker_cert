@@ -22,6 +22,7 @@ explore: etl_jobs {
 
 explore: events {
   label: "Events"
+  hidden: yes
   join: users {
     type: left_outer
     sql_on: ${events.user_id} = ${users.id} ;;
@@ -31,6 +32,7 @@ explore: events {
 
 explore: inventory_items {
   label: "Inventory items"
+  hidden: yes
   join: products {
     type: left_outer
     sql_on: ${inventory_items.product_id} = ${products.id} ;;
@@ -73,6 +75,7 @@ explore: order_items {
 
 explore: products {
   label: "Products"
+  hidden: yes
   join: distribution_centers {
     type: left_outer
     sql_on: ${products.distribution_center_id} = ${distribution_centers.id} ;;

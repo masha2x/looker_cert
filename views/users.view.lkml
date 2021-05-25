@@ -93,6 +93,7 @@ view: users {
   }
 
   dimension: age_group {
+    label: "Age group"
     sql: CASE
         WHEN ${age} >= 15 and ${age} < 26 THEN '15 - 25'
         WHEN ${age} >= 26 and ${age} < 36 THEN '26 - 35'
@@ -103,6 +104,7 @@ view: users {
   }
 
   dimension: new_user_90days {
+    label: "New users 90 days"
     sql: CASE
         WHEN diff_months(now(),${created_date}) <= 3 THEN 'New users last 90 days'
         ELSE 'Longer-term customers'
@@ -110,6 +112,7 @@ view: users {
   }
 
   dimension: new_user_30days {
+    label: "New users 30 days"
     sql: CASE
         WHEN diff_months(now(),${created_date}) <= 1 THEN 'New users last 30 days'
         WHEN diff_months(now(),${created_date}) <= 2 and diff_months(now(),${created_date}) > 1 THEN 'New users last 30 days'
